@@ -72,8 +72,8 @@ class Pasien_model extends CI_Model {
         $this->db->from('db_pasien as A');
         $this->db->join('db_rujukan as B', 'B.id_pasien = A.id_pasien'); 
         $this->db->join('db_pendaftaran as C', 'A.id_pasien = C.id_pasien');
-        $this->db->join('db_poli as E', 'B.id_poli = E.id_poli'); 
-        $this->db->where('B.id_lab', $id);
+        $this->db->join('db_poli as E', 'B.id_poli_dari = E.id_poli'); 
+        $this->db->where('B.id_lab_tujuan', $id);
         $this->db->order_by('B.dicek', 'DESC');
         $this->db->order_by('C.tgl_daftar', 'DESC');
         $query = $this->db->get();
